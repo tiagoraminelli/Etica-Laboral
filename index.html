@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Compendio de Ética y Administración Pública</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-slate-950 text-slate-100 min-h-screen antialiased selection:bg-indigo-500 selection:text-white"
+  >
+    <!-- Header Navigation -->
+    <header
+      class="border-b border-slate-800/80 bg-slate-950/90 backdrop-blur sticky top-0 z-50"
+    >
+      <div
+        class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <div class="flex items-center space-x-3">
+          <span class="h-3 w-3 rounded-full bg-indigo-500 animate-pulse"></span>
+          <span
+            class="font-bold text-xl tracking-tight bg-gradient-to-r from-indigo-400 to-sky-400 bg-clip-text text-transparent"
+            >Ética & Gestión Pública</span
+          >
+        </div>
+        <nav
+          class="hidden lg:flex space-x-6 text-sm font-medium text-slate-400"
+        >
+          <a href="#etimologia" class="hover:text-indigo-400 transition"
+            >1. Ethos & Moral</a
+          >
+          <a href="#enfoques" class="hover:text-indigo-400 transition"
+            >2. Los 3 Niveles</a
+          >
+          <a href="#conflictos" class="hover:text-indigo-400 transition"
+            >3. Conflictos Morales</a
+          >
+          <a href="#discrecionalidad" class="hover:text-indigo-400 transition"
+            >4. El "Hueco" Discrecional</a
+          >
+          <a href="#casos" class="hover:text-indigo-400 transition"
+            >5. Casos de Estudio</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-12 space-y-24">
+      <!-- Hero Section -->
+      <section class="text-center max-w-4xl mx-auto space-y-6 pt-6">
+        <div
+          class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-xs font-semibold tracking-wide uppercase"
+        >
+          Síntesis Teórica y Práctica
+        </div>
+        <h1
+          class="text-4xl md:text-6xl font-extrabold tracking-tight bg-gradient-to-r from-indigo-300 via-sky-200 to-emerald-300 bg-clip-text text-transparent leading-tight"
+        >
+          Análisis Razonado de Ética, Moral y Discrecionalidad
+        </h1>
+        <p
+          class="text-slate-400 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto"
+        >
+          Un compendio sistemático que articula las bases filológicas del
+          <span class="text-slate-200 font-medium">Ethos</span>, los niveles del
+          análisis filosófico y la mecánica de los dilemas morales en la toma de
+          decisiones del sector público.
+        </p>
+      </section>
+
+      <!-- Módulo 1: Fundamentos Etimológicos -->
+      <section id="etimologia" class="space-y-8">
+        <div class="border-l-4 border-indigo-500 pl-4">
+          <h2 class="text-2xl font-bold text-white tracking-tight">
+            1. Distinción Conceptual: Ethos, Moral y Ética
+          </h2>
+          <p class="text-slate-400 text-sm">
+            Raíces lingüísticas y aplicaciones en la conducta humana.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Ethos -->
+          <div
+            class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 space-y-4 hover:border-indigo-500/40 transition flex flex-col justify-between"
+          >
+            <div class="space-y-3">
+              <div class="flex justify-between items-center">
+                <span
+                  class="text-xs font-bold uppercase tracking-widest text-indigo-400"
+                  >Origen Griego</span
+                >
+                <span
+                  class="text-xs bg-indigo-500/10 text-indigo-300 px-2.5 py-0.5 rounded-full border border-indigo-500/20"
+                  >ἦθος / ἔθος</span
+                >
+              </div>
+              <h3 class="text-2xl font-bold text-white">Ethos</h3>
+              <p class="text-slate-300 text-sm leading-relaxed">
+                Aude tanto al <strong>carácter y modo de ser</strong> (ἦθος)
+                como a la <strong>costumbre y hábito</strong> (ἔθος). Representa
+                la disposición interna, el sello distintivo y la cultura
+                compartida de una comunidad o cuerpo profesional.
+              </p>
+            </div>
+            <div
+              class="pt-4 border-t border-slate-800/80 text-xs text-slate-400 italic"
+            >
+              Ejemplo: El ethos de servicio en la función pública.
+            </div>
+          </div>
+
+          <!-- Moral -->
+          <div
+            class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 space-y-4 hover:border-sky-500/40 transition flex flex-col justify-between"
+          >
+            <div class="space-y-3">
+              <div class="flex justify-between items-center">
+                <span
+                  class="text-xs font-bold uppercase tracking-widest text-sky-400"
+                  >Origen Latín</span
+                >
+                <span
+                  class="text-xs bg-sky-500/10 text-sky-300 px-2.5 py-0.5 rounded-full border border-sky-500/20"
+                  >mos / moris</span
+                >
+              </div>
+              <h3 class="text-2xl font-bold text-white">Moral</h3>
+              <p class="text-slate-300 text-sm leading-relaxed">
+                Conjunto práctico de
+                <strong>normas, reglas, prohibiciones y costumbres</strong>
+                vigentes que una sociedad o cultura valida colectivamente para
+                determinar lo que es correcto o incorrecto en la vida diaria.
+              </p>
+            </div>
+            <div
+              class="pt-4 border-t border-slate-800/80 text-xs text-slate-400 italic"
+            >
+              Ejemplo: Decir la verdad y cumplir los contratos expedidos.
+            </div>
+          </div>
+
+          <!-- Ética -->
+          <div
+            class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 space-y-4 hover:border-emerald-500/40 transition flex flex-col justify-between"
+          >
+            <div class="space-y-3">
+              <div class="flex justify-between items-center">
+                <span
+                  class="text-xs font-bold uppercase tracking-widest text-emerald-400"
+                  >Filosofía Moral</span
+                >
+                <span
+                  class="text-xs bg-emerald-500/10 text-emerald-300 px-2.5 py-0.5 rounded-full border border-emerald-500/20"
+                  >Teoría Crítica</span
+                >
+              </div>
+              <h3 class="text-2xl font-bold text-white">Ética</h3>
+              <p class="text-slate-300 text-sm leading-relaxed">
+                Rama reflexiva que **analiza y cuestiona críticamente** los
+                fundamentos de las normas morales. No dicta mandatos directos,
+                sino que examina los principios racionales de justicia, deber y
+                libertad.
+              </p>
+            </div>
+            <div
+              class="pt-4 border-t border-slate-800/80 text-xs text-slate-400 italic"
+            >
+              Ejemplo: ¿Por qué la utilidad o la justicia justifican una regla?
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Módulo 2: Los 3 Niveles del Análisis Ético -->
+      <section id="enfoques" class="space-y-8">
+        <div class="border-l-4 border-sky-500 pl-4">
+          <h2 class="text-2xl font-bold text-white tracking-tight">
+            2. Los Tres Niveles de Abordaje
+          </h2>
+          <p class="text-slate-400 text-sm">
+            Matriz metodológica para discernir situaciones complejas.
+          </p>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table
+            class="w-full text-left text-sm border-collapse bg-slate-900/40 rounded-2xl overflow-hidden border border-slate-800"
+          >
+            <thead>
+              <tr class="bg-slate-900 text-slate-200 border-b border-slate-800">
+                <th
+                  class="p-5 font-bold uppercase tracking-wider text-xs text-slate-400"
+                >
+                  Enfoque
+                </th>
+                <th
+                  class="p-5 font-bold uppercase tracking-wider text-xs text-slate-400"
+                >
+                  Pregunta Central
+                </th>
+                <th
+                  class="p-5 font-bold uppercase tracking-wider text-xs text-slate-400"
+                >
+                  Función Principal
+                </th>
+                <th
+                  class="p-5 font-bold uppercase tracking-wider text-xs text-slate-400"
+                >
+                  Criterio de Evaluación
+                </th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800/80 text-slate-300">
+              <tr class="hover:bg-slate-800/30 transition">
+                <td class="p-5 font-bold text-indigo-400">Descriptivo</td>
+                <td class="p-5 font-mono text-xs text-slate-200">
+                  ¿Cómo es la realidad / qué ocurre?
+                </td>
+                <td class="p-5">
+                  Observar, detallar y registrar hechos verificables sin emitir
+                  juicios de valor.
+                </td>
+                <td class="p-5 text-slate-400">Verdadero / Falso</td>
+              </tr>
+              <tr class="hover:bg-slate-800/30 transition">
+                <td class="p-5 font-bold text-sky-400">Evaluativo</td>
+                <td class="p-5 font-mono text-xs text-slate-200">
+                  ¿Qué valor o impacto tiene?
+                </td>
+                <td class="p-5">
+                  Ponderar y calificar una conducta o situación según escalas o
+                  principios morales.
+                </td>
+                <td class="p-5 text-slate-400">
+                  Adecuado / Inadecuado / Justificado
+                </td>
+              </tr>
+              <tr class="hover:bg-slate-800/30 transition">
+                <td class="p-5 font-bold text-emerald-400">Prescriptivo</td>
+                <td class="p-5 font-mono text-xs text-slate-200">
+                  ¿Qué se debe hacer al respecto?
+                </td>
+                <td class="p-5">
+                  Formular normas, mandatos, criterios de acción o regulaciones
+                  de conducta.
+                </td>
+                <td class="p-5 text-slate-400">
+                  Obligatorio / Prohibido / Aconsejable
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Módulo 3: La Naturaleza del Conflicto Moral -->
+      <section id="conflictos" class="space-y-8">
+        <div class="border-l-4 border-emerald-500 pl-4">
+          <h2 class="text-2xl font-bold text-white tracking-tight">
+            3. ¿Qué es un Conflicto Moral?
+          </h2>
+          <p class="text-slate-400 text-sm">
+            La estructura interna de las encrucijadas éticas.
+          </p>
+        </div>
+
+        <div
+          class="bg-slate-900/40 border border-slate-800 rounded-2xl p-8 space-y-6"
+        >
+          <p class="text-slate-300 text-base leading-relaxed">
+            Un **conflicto moral** se configura cuando un agente debe tomar una
+            decisión y se enfrenta a dos o más deberes, principios o valores
+            válidos que son
+            <strong class="text-white">incompatibles entre sí</strong>. Cumplir
+            con una de las obligaciones implica, de forma ineludible, violar o
+            desatender la otra.
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+            <div
+              class="border border-slate-800 bg-slate-950/60 p-6 rounded-xl space-y-3"
+            >
+              <h4 class="font-bold text-indigo-400 text-lg">
+                Estructura Dilemática
+              </h4>
+              <ul
+                class="space-y-2 text-sm text-slate-300 list-disc list-inside"
+              >
+                <li>
+                  <strong class="text-slate-100">Opción A:</strong> Cumple el
+                  principio X, pero viola el principio Y.
+                </li>
+                <li>
+                  <strong class="text-slate-100">Opción B:</strong> Cumple el
+                  principio Y, pero viola el principio X.
+                </li>
+                <li>
+                  Inexistencia de un curso de acción neutral que preserve ambos
+                  valores intactos.
+                </li>
+              </ul>
+            </div>
+
+            <div
+              class="border border-slate-800 bg-slate-950/60 p-6 rounded-xl space-y-3"
+            >
+              <h4 class="font-bold text-sky-400 text-lg">Tensiones Típicas</h4>
+              <ul
+                class="space-y-2 text-sm text-slate-300 list-disc list-inside"
+              >
+                <li>
+                  <strong>Utilitarismo vs. Deontología:</strong> Maximizar
+                  beneficios masivos vs. No violar derechos individuales.
+                </li>
+                <li>
+                  <strong>Legalidad vs. Legitimidad:</strong> Cumplir el
+                  reglamento formal vs. Atender una urgencia humanitaria.
+                </li>
+                <li>
+                  <strong>Justicia Distributiva vs. Certidumbre:</strong>
+                  Impacto a largo plazo vs. Atención inmediata.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Módulo 4: El "Hueco" Discrecional -->
+      <section
+        id="discrecionalidad"
+        class="bg-gradient-to-br from-indigo-950/40 via-slate-900 to-slate-950 border border-indigo-500/30 rounded-3xl p-8 md:p-10 space-y-8"
+      >
+        <div class="max-w-3xl space-y-3">
+          <span
+            class="text-xs font-bold uppercase tracking-widest text-indigo-400"
+            >El núcleo de la responsabilidad personal</span
+          >
+          <h2
+            class="text-3xl md:text-4xl font-extrabold text-white tracking-tight"
+          >
+            El "Hueco" de la Discrecionalidad
+          </h2>
+          <p class="text-slate-300 text-base leading-relaxed">
+            El conflicto moral **no existe en la ejecución mecánica o
+            algorítmica** de una instrucción estricta. Surge precisamente cuando
+            las reglas formales presentan vacíos, lagunas o contradicciones,
+            abriendo un margen para la decisión personal.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div
+            class="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl space-y-3"
+          >
+            <div class="text-indigo-400 font-bold text-lg">
+              1. Pérdida del Paraguas Normativo
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Al no existir una regla rígida aplicable, el funcionario no puede
+              eximirse diciendo "solo cumplía órdenes". La responsabilidad ética
+              del resultado se desplaza directamente al individuo.
+            </p>
+          </div>
+
+          <div
+            class="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl space-y-3"
+          >
+            <div class="text-sky-400 font-bold text-lg">
+              2. Choque de Criterios
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Dentro de ese espacio libre, colisionan el sentido de justicia o
+              compasión personal del agente frente al rigor o la inercia formal
+              de la institución estatal.
+            </p>
+          </div>
+
+          <div
+            class="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl space-y-3"
+          >
+            <div class="text-emerald-400 font-bold text-lg">
+              3. Juicio Discrecional
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Obliga a ponderar la *intención* y el fin superior del bien común
+              cuando las letras del reglamento resultan contraproducentes para
+              la sociedad.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Módulo 5: Casos Prácticos de Estudio -->
+      <section id="casos" class="space-y-10">
+        <div class="border-l-4 border-indigo-500 pl-4">
+          <h2 class="text-2xl font-bold text-white tracking-tight">
+            5. Casos Prácticos de Análisis
+          </h2>
+          <p class="text-slate-400 text-sm">
+            Aplicación concreta de la estructura tripartita en escenarios
+            complejos.
+          </p>
+        </div>
+
+        <!-- Caso 1: Administración Pública -->
+        <div
+          class="bg-slate-900/50 border border-slate-800 rounded-2xl p-8 space-y-6"
+        >
+          <div
+            class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-6"
+          >
+            <div>
+              <span
+                class="text-xs font-bold text-indigo-400 uppercase tracking-wider"
+                >Caso 01 • Gestión Estatal</span
+              >
+              <h3 class="text-2xl font-bold text-white mt-1">
+                Automatización del Estado vs. Empleo Público
+              </h3>
+            </div>
+            <span
+              class="px-3 py-1 bg-indigo-500/10 text-indigo-300 border border-indigo-500/30 rounded-full text-xs font-semibold self-start md:self-auto"
+            >
+              Dilema de Eficiencia Social
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="space-y-4">
+              <p class="text-sm text-slate-300 leading-relaxed">
+                Un Ministerio evalúa implementar un sistema automatizado para
+                procesar pensiones sociales.
+              </p>
+              <div class="space-y-3 text-xs">
+                <div
+                  class="p-4 bg-slate-950 rounded-xl border border-slate-800"
+                >
+                  <strong class="text-emerald-400 block mb-1"
+                    >Opción A: Automatización Masiva</strong
+                  >
+                  Reduce la espera de 6 meses a 48 horas para
+                  <strong>150.000 ciudadanos indigentes</strong>, pero implica
+                  el despido de
+                  <strong>800 empleados públicos operativos</strong> por
+                  obsolescencia.
+                </div>
+                <div
+                  class="p-4 bg-slate-950 rounded-xl border border-slate-800"
+                >
+                  <strong class="text-indigo-400 block mb-1"
+                    >Opción B: Mantenimiento del Sistema Manual</strong
+                  >
+                  Preserva la estabilidad laboral de los
+                  <strong>800 trabajadores estatales</strong>, perpetuando la
+                  demora de medio año para 150.000 beneficiarios en estado
+                  crítico.
+                </div>
+              </div>
+            </div>
+
+            <!-- Niveles del Caso 1 -->
+            <div
+              class="space-y-3 bg-slate-950/80 p-5 rounded-xl border border-slate-800/80 text-xs"
+            >
+              <div>
+                <strong class="text-indigo-400">Descriptivo:</strong>
+                <span class="text-slate-300"
+                  >Presupuesto de reconversión laboral nulo. Opción A beneficia
+                  a 150.000 vulnerables afectando a 800 trabajadores; Opción B
+                  protege a 800 trabajadores perjudicando a 150.000
+                  beneficiarios.</span
+                >
+              </div>
+              <div>
+                <strong class="text-sky-400">Evaluativo:</strong>
+                <span class="text-slate-300"
+                  >Enfrenta la maximización del bienestar público general frente
+                  al deber ético del Estado como empleador protector.</span
+                >
+              </div>
+              <div>
+                <strong class="text-emerald-400">Prescriptivo:</strong>
+                <span class="text-slate-300"
+                  >Implementar la automatización (Opción A) priorizando el
+                  beneficio vital de la mayoría en extrema indigencia,
+                  ejecutando partidas paliativas para el personal
+                  afectado.</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Caso 2: Salud Pública / Crisis -->
+        <div
+          class="bg-slate-900/50 border border-slate-800 rounded-2xl p-8 space-y-6"
+        >
+          <div
+            class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-6"
+          >
+            <div>
+              <span
+                class="text-xs font-bold text-sky-400 uppercase tracking-wider"
+                >Caso 02 • Salud Pública en Crisis</span
+              >
+              <h3 class="text-2xl font-bold text-white mt-1">
+                Hospital Público ante Insumos Críticos en Zona de Conflicto
+              </h3>
+            </div>
+            <span
+              class="px-3 py-1 bg-sky-500/10 text-sky-300 border border-sky-500/30 rounded-full text-xs font-semibold self-start md:self-auto"
+            >
+              Dilema de Asignación Médica
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="space-y-4">
+              <p class="text-sm text-slate-300 leading-relaxed">
+                Un hospital público fronterizo recibe insumos médicos limitados
+                durante una emergencia con refugiados.
+              </p>
+              <div class="space-y-3 text-xs">
+                <div
+                  class="p-4 bg-slate-950 rounded-xl border border-slate-800"
+                >
+                  <strong class="text-emerald-400 block mb-1"
+                    >Opción A: Atención Inmediata en Guardia</strong
+                  >
+                  Destinar el 100% de insumos y médicos a salvar con 90% de
+                  certeza a <strong>200 heridos graves</strong> presentes en el
+                  hospital.
+                </div>
+                <div
+                  class="p-4 bg-slate-950 rounded-xl border border-slate-800"
+                >
+                  <strong class="text-sky-400 block mb-1"
+                    >Opción B: Contención Epidemiológica y Forense</strong
+                  >
+                  Redirigir recursos para frenar un brote intencional en campos
+                  de refugiados y documentar crímenes, con 50% de probabilidad
+                  de salvar a <strong>8.000 personas</strong> (dejando morir a
+                  la mayoría de la guardia).
+                </div>
+              </div>
+            </div>
+
+            <!-- Niveles del Caso 2 -->
+            <div
+              class="space-y-3 bg-slate-950/80 p-5 rounded-xl border border-slate-800/80 text-xs"
+            >
+              <div>
+                <strong class="text-indigo-400">Descriptivo:</strong>
+                <span class="text-slate-300"
+                  >Certidumbre de salvar 180 vidas cercanas vs. Esperanza
+                  matemática de salvar 4.000 vidas a distancia con alto riesgo
+                  de fracaso total.</span
+                >
+              </div>
+              <div>
+                <strong class="text-sky-400">Evaluativo:</strong>
+                <span class="text-slate-300"
+                  >Enfrenta la obligación ética de atención directa y no
+                  abandono al paciente inmediato vs. La maximización del valor
+                  esperado para detener una catástrofe masiva.</span
+                >
+              </div>
+              <div>
+                <strong class="text-emerald-400">Prescriptivo:</strong>
+                <span class="text-slate-300"
+                  >Se prescribe priorizar la opción con mayor impacto
+                  cuantitativo probable para evitar la aniquilación sistemática
+                  a gran escala.</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer
+      class="border-t border-slate-800/80 bg-slate-950 py-10 text-center text-xs text-slate-500"
+    >
+      <div class="max-w-7xl mx-auto px-6 space-y-3">
+        <p class="text-slate-400 font-medium">
+          Compendio de Análisis Ético y Filosofía Práctica
+        </p>
+        <p>
+          Diseñado con HTML5 y Tailwind CSS para consulta y estudio de la
+          Gestión Pública.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
