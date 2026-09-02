@@ -35,5 +35,5 @@ Al ser una aplicación estática, no requiere proceso de compilación ni servido
 
 1. Clona o descarga este repositorio:
    ```bash
-   git clone [https://github.com/tu-usuario/nombre-repositorio.git](https://github.com/tu-usuario/nombre-repositorio.git)
+   git clone https://github.com/tiagoraminelli/Etica-Laboral.git
    ```
