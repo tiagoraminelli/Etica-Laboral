@@ -8,583 +8,1130 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <style>
       body {
         font-family: "Inter", sans-serif;
+        background: #f9f7f4;
+        background-image:
+          radial-gradient(
+            circle at 20% 30%,
+            rgba(210, 190, 230, 0.08) 0%,
+            transparent 60%
+          ),
+          radial-gradient(
+            circle at 80% 70%,
+            rgba(180, 210, 240, 0.06) 0%,
+            transparent 60%
+          );
+      }
+      .font-serif {
+        font-family: "Cormorant Garamond", serif;
+      }
+      .glass-light {
+        background: rgba(255, 252, 248, 0.75);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(200, 190, 180, 0.15);
+        box-shadow: 0 2px 40px rgba(0, 0, 0, 0.02);
+      }
+      .card-light {
+        background: rgba(255, 252, 248, 0.6);
+        border: 1px solid rgba(200, 190, 180, 0.12);
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
+        transition: all 0.3s ease;
+      }
+      .card-light:hover {
+        background: rgba(255, 252, 248, 0.85);
+        border-color: rgba(160, 140, 200, 0.2);
+        box-shadow: 0 8px 40px rgba(100, 80, 160, 0.04);
+      }
+      .gradient-text {
+        background: linear-gradient(
+          135deg,
+          #5b3e7a 0%,
+          #3d5a80 50%,
+          #2d6a6a 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .gradient-text-soft {
+        background: linear-gradient(
+          135deg,
+          #6b4e8a 0%,
+          #4a6a90 50%,
+          #3a7a7a 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .border-soft {
+        border-color: rgba(180, 170, 160, 0.12);
+      }
+      .quote-mark::before {
+        content: "“";
+        font-size: 3.2rem;
+        line-height: 0.5;
+        color: rgba(100, 80, 160, 0.08);
+        font-family: "Cormorant Garamond", serif;
+        margin-right: 0.2rem;
+        vertical-align: -0.6rem;
+      }
+      .quote-mark::after {
+        content: "”";
+        font-size: 3.2rem;
+        line-height: 0.5;
+        color: rgba(100, 80, 160, 0.08);
+        font-family: "Cormorant Garamond", serif;
+        margin-left: 0.2rem;
+        vertical-align: -0.6rem;
+      }
+      .nav-link {
+        position: relative;
+        letter-spacing: 0.04em;
+        color: #7a6e6a;
+        transition: color 0.3s ease;
+      }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 1.5px;
+        background: linear-gradient(90deg, #8b6fa8, #5a8aa8);
+        transition: width 0.3s ease;
+      }
+      .nav-link:hover {
+        color: #3d2c3a;
+      }
+      .nav-link:hover::after {
+        width: 100%;
+      }
+      .table-light {
+        background: rgba(255, 252, 248, 0.4);
+        border: 1px solid rgba(200, 190, 180, 0.1);
+      }
+      .table-light th {
+        background: rgba(240, 235, 228, 0.3);
+        color: #5a4e4a;
+        font-weight: 400;
+        letter-spacing: 0.08em;
+      }
+      .table-light td {
+        color: #4a3e3a;
+        border-color: rgba(200, 190, 180, 0.06);
+      }
+      .table-light tr:hover {
+        background: rgba(220, 210, 240, 0.06);
+      }
+      .pill-light {
+        background: rgba(160, 140, 200, 0.06);
+        border: 1px solid rgba(160, 140, 200, 0.1);
+        color: #5a4a6a;
+      }
+      .pill-sky {
+        background: rgba(100, 170, 200, 0.06);
+        border: 1px solid rgba(100, 170, 200, 0.1);
+        color: #3a6a7a;
+      }
+      .pill-emerald {
+        background: rgba(80, 170, 150, 0.06);
+        border: 1px solid rgba(80, 170, 150, 0.1);
+        color: #3a6a5a;
+      }
+      ::selection {
+        background: rgba(160, 140, 200, 0.2);
+        color: #3d2c3a;
+      }
+      .section-divider {
+        width: 60px;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(160, 140, 180, 0.2),
+          transparent
+        );
+      }
+      .card-highlight {
+        border-left: 2px solid rgba(160, 140, 200, 0.2);
+      }
+      @media (max-width: 640px) {
+        .glass-light {
+          background: rgba(255, 252, 248, 0.9);
+          backdrop-filter: none;
+        }
       }
     </style>
   </head>
-  <body
-    class="bg-slate-950 text-slate-100 min-h-screen antialiased selection:bg-indigo-500 selection:text-white"
-  >
-    <!-- Header Navigation -->
+  <body class="text-slate-700 antialiased min-h-screen">
+    <!-- Header -->
     <header
-      class="border-b border-slate-800/80 bg-slate-950/90 backdrop-blur sticky top-0 z-50"
+      class="border-b border-soft bg-white/70 backdrop-blur-lg sticky top-0 z-50"
     >
       <div
-        class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center"
+        class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center"
       >
-        <div class="flex items-center space-x-3">
-          <span class="h-3 w-3 rounded-full bg-indigo-500 animate-pulse"></span>
+        <div class="flex items-center space-x-4">
           <span
-            class="font-bold text-xl tracking-tight bg-gradient-to-r from-indigo-400 to-sky-400 bg-clip-text text-transparent"
-            >Ética & Gestión Pública</span
+            class="h-px w-8 bg-gradient-to-r from-transparent to-[#8b6fa8]/30"
+          ></span>
+          <span
+            class="font-serif font-light text-xl tracking-wide text-slate-600/90"
           >
+            <span class="italic text-[#6b4e8a]/70">Ethos</span> ·
+            <span class="text-[#4a6a90]/70">Práxis</span>
+          </span>
+          <span
+            class="h-px w-8 bg-gradient-to-l from-transparent to-[#8b6fa8]/30"
+          ></span>
         </div>
         <nav
-          class="hidden lg:flex space-x-6 text-sm font-medium text-slate-400"
+          class="hidden md:flex space-x-6 text-xs font-light uppercase tracking-[0.12em]"
         >
-          <a href="#etimologia" class="hover:text-indigo-400 transition"
-            >1. Ethos & Moral</a
-          >
-          <a href="#enfoques" class="hover:text-indigo-400 transition"
-            >2. Los 3 Niveles</a
-          >
-          <a href="#conflictos" class="hover:text-indigo-400 transition"
-            >3. Conflictos Morales</a
-          >
-          <a href="#discrecionalidad" class="hover:text-indigo-400 transition"
-            >4. El "Hueco" Discrecional</a
-          >
-          <a href="#casos" class="hover:text-indigo-400 transition"
-            >5. Casos de Estudio</a
-          >
+          <a href="#etimologia" class="nav-link">Etimología</a>
+          <a href="#enfoques" class="nav-link">Niveles</a>
+          <a href="#conflictos" class="nav-link">Conflicto</a>
+          <a href="#discrecionalidad" class="nav-link">Discrecionalidad</a>
+          <a href="#casos" class="nav-link">Casos</a>
         </nav>
+        <div
+          class="w-9 h-9 rounded-full border border-[#d0c8c0]/30 flex items-center justify-center text-xs text-slate-400/60 font-light tracking-widest bg-white/40"
+        >
+          φ
+        </div>
       </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-6 py-12 space-y-24">
-      <!-- Hero Section -->
-      <section class="text-center max-w-4xl mx-auto space-y-6 pt-6">
+    <main
+      class="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 space-y-24 sm:space-y-32"
+    >
+      <!-- Hero -->
+      <section class="text-center max-w-4xl mx-auto space-y-6 pt-4">
         <div
-          class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-xs font-semibold tracking-wide uppercase"
+          class="inline-flex items-center space-x-3 px-4 py-1.5 rounded-full border border-[#d0c8c0]/20 bg-white/40 backdrop-blur-sm"
         >
-          Síntesis Teórica y Práctica
+          <span
+            class="w-1.5 h-1.5 rounded-full bg-[#8b6fa8]/40 animate-pulse"
+          ></span>
+          <span
+            class="text-[0.5rem] uppercase tracking-[0.18em] text-slate-500/60 font-light"
+            >Síntesis teórica · reflexión práctica</span
+          >
         </div>
         <h1
-          class="text-4xl md:text-6xl font-extrabold tracking-tight bg-gradient-to-r from-indigo-300 via-sky-200 to-emerald-300 bg-clip-text text-transparent leading-tight"
+          class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-[1.1] tracking-tight text-slate-800"
         >
-          Análisis Razonado de Ética, Moral y Discrecionalidad
+          <span class="block italic font-light text-[#6b4e8a]/60">Ética,</span>
+          <span class="block">Moral y el</span>
+          <span class="block gradient-text">hueco discrecional</span>
         </h1>
         <p
-          class="text-slate-400 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto"
+          class="text-slate-500/80 text-sm sm:text-base md:text-lg font-light leading-relaxed max-w-2xl mx-auto px-2"
         >
-          Un compendio sistemático que articula las bases filológicas del
-          <span class="text-slate-200 font-medium">Ethos</span>, los niveles del
+          Un compendio sistemático que articula las raíces filológicas del
+          <span class="text-slate-700 font-medium">Ethos</span>, los niveles del
           análisis filosófico y la mecánica de los dilemas morales en la toma de
           decisiones del sector público.
         </p>
+        <div
+          class="flex justify-center space-x-2 text-3xl text-slate-300/20 font-serif font-light"
+        >
+          <span>—</span><span class="text-[#8b6fa8]/10">◆</span><span>—</span>
+        </div>
       </section>
 
-      <!-- Módulo 1: Fundamentos Etimológicos -->
+      <!-- Módulo 1: Fundamentos Etimológicos (expandido) -->
       <section id="etimologia" class="space-y-8">
-        <div class="border-l-4 border-indigo-500 pl-4">
-          <h2 class="text-2xl font-bold text-white tracking-tight">
-            1. Distinción Conceptual: Ethos, Moral y Ética
+        <div class="border-l-2 border-[#c0b0c8]/30 pl-5 sm:pl-6">
+          <h2
+            class="font-serif text-2xl sm:text-3xl font-light text-slate-800 tracking-wide"
+          >
+            1. <span class="italic text-[#6b4e8a]/60">Ethos</span>, Moral y
+            Ética
           </h2>
-          <p class="text-slate-400 text-sm">
-            Raíces lingüísticas y aplicaciones en la conducta humana.
+          <p
+            class="text-slate-500/60 text-xs sm:text-sm font-light tracking-wider uppercase mt-1"
+          >
+            Raíces lingüísticas y aplicaciones en la conducta humana
           </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <!-- Ethos -->
-          <div
-            class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 space-y-4 hover:border-indigo-500/40 transition flex flex-col justify-between"
-          >
-            <div class="space-y-3">
-              <div class="flex justify-between items-center">
-                <span
-                  class="text-xs font-bold uppercase tracking-widest text-indigo-400"
-                  >Origen Griego</span
-                >
-                <span
-                  class="text-xs bg-indigo-500/10 text-indigo-300 px-2.5 py-0.5 rounded-full border border-indigo-500/20"
-                  >ἦθος / ἔθος</span
-                >
-              </div>
-              <h3 class="text-2xl font-bold text-white">Ethos</h3>
-              <p class="text-slate-300 text-sm leading-relaxed">
-                Aude tanto al <strong>carácter y modo de ser</strong> (ἦθος)
-                como a la <strong>costumbre y hábito</strong> (ἔθος). Representa
-                la disposición interna, el sello distintivo y la cultura
-                compartida de una comunidad o cuerpo profesional.
-              </p>
+          <div class="card-light rounded-2xl p-6 sm:p-7 space-y-4">
+            <div class="flex justify-between items-start">
+              <span
+                class="text-[0.5rem] uppercase tracking-[0.18em] text-[#6b4e8a]/50 font-light"
+                >Origen griego</span
+              >
+              <span class="font-serif text-2xl text-[#6b4e8a]/10">ἦθος</span>
             </div>
-            <div
-              class="pt-4 border-t border-slate-800/80 text-xs text-slate-400 italic"
+            <h3
+              class="font-serif text-2xl sm:text-3xl font-light text-slate-800"
             >
-              Ejemplo: El ethos de servicio en la función pública.
+              Ethos
+            </h3>
+            <p class="text-slate-600/80 text-sm leading-relaxed font-light">
+              <span class="text-slate-700 font-medium"
+                >Carácter y modo de ser</span
+              >
+              (ἦθος) y
+              <span class="text-slate-700 font-medium">costumbre y hábito</span>
+              (ἔθος). Representa la disposición interna, el sello distintivo y
+              la cultura compartida de una comunidad o cuerpo profesional.
+            </p>
+            <div
+              class="pt-4 border-t border-[#d0c8c0]/20 text-[0.55rem] uppercase tracking-[0.15em] text-slate-400/70 font-light italic"
+            >
+              Ejemplo: El ethos de servicio en la función pública
             </div>
+            <p
+              class="text-xs text-slate-500/60 font-light leading-relaxed pt-1 border-t border-[#d0c8c0]/10 mt-2"
+            >
+              <span class="font-medium text-slate-600">Extensión:</span> El
+              ethos no es innato, sino que se forja en la práctica cotidiana y
+              en la interacción con la comunidad. En la administración pública,
+              el ethos se manifiesta en la vocación de servicio, la integridad y
+              la responsabilidad compartida.
+            </p>
           </div>
 
           <!-- Moral -->
-          <div
-            class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 space-y-4 hover:border-sky-500/40 transition flex flex-col justify-between"
-          >
-            <div class="space-y-3">
-              <div class="flex justify-between items-center">
-                <span
-                  class="text-xs font-bold uppercase tracking-widest text-sky-400"
-                  >Origen Latín</span
-                >
-                <span
-                  class="text-xs bg-sky-500/10 text-sky-300 px-2.5 py-0.5 rounded-full border border-sky-500/20"
-                  >mos / moris</span
-                >
-              </div>
-              <h3 class="text-2xl font-bold text-white">Moral</h3>
-              <p class="text-slate-300 text-sm leading-relaxed">
-                Conjunto práctico de
-                <strong>normas, reglas, prohibiciones y costumbres</strong>
-                vigentes que una sociedad o cultura valida colectivamente para
-                determinar lo que es correcto o incorrecto en la vida diaria.
-              </p>
+          <div class="card-light rounded-2xl p-6 sm:p-7 space-y-4">
+            <div class="flex justify-between items-start">
+              <span
+                class="text-[0.5rem] uppercase tracking-[0.18em] text-[#4a6a90]/50 font-light"
+                >Origen latín</span
+              >
+              <span class="font-serif text-2xl text-[#4a6a90]/10">mos</span>
             </div>
-            <div
-              class="pt-4 border-t border-slate-800/80 text-xs text-slate-400 italic"
+            <h3
+              class="font-serif text-2xl sm:text-3xl font-light text-slate-800"
             >
-              Ejemplo: Decir la verdad y cumplir los contratos expedidos.
+              Moral
+            </h3>
+            <p class="text-slate-600/80 text-sm leading-relaxed font-light">
+              Conjunto práctico de
+              <span class="text-slate-700 font-medium"
+                >normas, reglas, prohibiciones y costumbres</span
+              >
+              que una sociedad o cultura valida colectivamente para determinar
+              lo que es correcto o incorrecto en la vida diaria.
+            </p>
+            <div
+              class="pt-4 border-t border-[#d0c8c0]/20 text-[0.55rem] uppercase tracking-[0.15em] text-slate-400/70 font-light italic"
+            >
+              Ejemplo: Decir la verdad y cumplir los contratos
             </div>
+            <p
+              class="text-xs text-slate-500/60 font-light leading-relaxed pt-1 border-t border-[#d0c8c0]/10 mt-2"
+            >
+              <span class="font-medium text-slate-600">Extensión:</span> La
+              moral varía entre culturas y épocas, pero siempre cumple una
+              función de cohesión social. En el ámbito público, la moral se
+              traduce en códigos de conducta, principios de actuación y
+              expectativas compartidas sobre el comportamiento de los
+              funcionarios.
+            </p>
           </div>
 
           <!-- Ética -->
-          <div
-            class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 space-y-4 hover:border-emerald-500/40 transition flex flex-col justify-between"
-          >
-            <div class="space-y-3">
-              <div class="flex justify-between items-center">
-                <span
-                  class="text-xs font-bold uppercase tracking-widest text-emerald-400"
-                  >Filosofía Moral</span
-                >
-                <span
-                  class="text-xs bg-emerald-500/10 text-emerald-300 px-2.5 py-0.5 rounded-full border border-emerald-500/20"
-                  >Teoría Crítica</span
-                >
-              </div>
-              <h3 class="text-2xl font-bold text-white">Ética</h3>
-              <p class="text-slate-300 text-sm leading-relaxed">
-                Rama reflexiva que **analiza y cuestiona críticamente** los
-                fundamentos de las normas morales. No dicta mandatos directos,
-                sino que examina los principios racionales de justicia, deber y
-                libertad.
-              </p>
+          <div class="card-light rounded-2xl p-6 sm:p-7 space-y-4">
+            <div class="flex justify-between items-start">
+              <span
+                class="text-[0.5rem] uppercase tracking-[0.18em] text-[#3a7a7a]/50 font-light"
+                >Filosofía moral</span
+              >
+              <span class="font-serif text-2xl text-[#3a7a7a]/10">φ</span>
             </div>
+            <h3
+              class="font-serif text-2xl sm:text-3xl font-light text-slate-800"
+            >
+              Ética
+            </h3>
+            <p class="text-slate-600/80 text-sm leading-relaxed font-light">
+              Rama reflexiva que
+              <span class="text-slate-700 font-medium"
+                >analiza y cuestiona críticamente</span
+              >
+              los fundamentos de las normas morales. Examina los principios
+              racionales de justicia, deber y libertad.
+            </p>
             <div
-              class="pt-4 border-t border-slate-800/80 text-xs text-slate-400 italic"
+              class="pt-4 border-t border-[#d0c8c0]/20 text-[0.55rem] uppercase tracking-[0.15em] text-slate-400/70 font-light italic"
             >
               Ejemplo: ¿Por qué la utilidad o la justicia justifican una regla?
             </div>
+            <p
+              class="text-xs text-slate-500/60 font-light leading-relaxed pt-1 border-t border-[#d0c8c0]/10 mt-2"
+            >
+              <span class="font-medium text-slate-600">Extensión:</span> La
+              ética no prescribe directamente, sino que ofrece herramientas para
+              el análisis crítico. En la gestión pública, la ética ayuda a
+              discernir entre el mero cumplimiento normativo y la actuación
+              verdaderamente justa, considerando el contexto y las
+              consecuencias.
+            </p>
           </div>
         </div>
       </section>
 
-      <!-- Módulo 2: Los 3 Niveles del Análisis Ético -->
+      <!-- Módulo 2: Los 3 Niveles (expandido) -->
       <section id="enfoques" class="space-y-8">
-        <div class="border-l-4 border-sky-500 pl-4">
-          <h2 class="text-2xl font-bold text-white tracking-tight">
-            2. Los Tres Niveles de Abordaje
+        <div class="border-l-2 border-[#b0c0c8]/30 pl-5 sm:pl-6">
+          <h2
+            class="font-serif text-2xl sm:text-3xl font-light text-slate-800 tracking-wide"
+          >
+            2. Los tres niveles de abordaje
           </h2>
-          <p class="text-slate-400 text-sm">
-            Matriz metodológica para discernir situaciones complejas.
+          <p
+            class="text-slate-500/60 text-xs sm:text-sm font-light tracking-wider uppercase mt-1"
+          >
+            Matriz metodológica para discernir situaciones complejas
           </p>
         </div>
 
         <div class="overflow-x-auto">
           <table
-            class="w-full text-left text-sm border-collapse bg-slate-900/40 rounded-2xl overflow-hidden border border-slate-800"
+            class="w-full text-left border-collapse table-light rounded-2xl overflow-hidden"
           >
             <thead>
-              <tr class="bg-slate-900 text-slate-200 border-b border-slate-800">
+              <tr>
                 <th
-                  class="p-5 font-bold uppercase tracking-wider text-xs text-slate-400"
+                  class="p-4 sm:p-5 text-[0.55rem] uppercase tracking-[0.15em] font-light"
                 >
                   Enfoque
                 </th>
                 <th
-                  class="p-5 font-bold uppercase tracking-wider text-xs text-slate-400"
+                  class="p-4 sm:p-5 text-[0.55rem] uppercase tracking-[0.15em] font-light"
                 >
-                  Pregunta Central
+                  Pregunta central
                 </th>
                 <th
-                  class="p-5 font-bold uppercase tracking-wider text-xs text-slate-400"
+                  class="p-4 sm:p-5 text-[0.55rem] uppercase tracking-[0.15em] font-light hidden md:table-cell"
                 >
-                  Función Principal
+                  Función principal
                 </th>
                 <th
-                  class="p-5 font-bold uppercase tracking-wider text-xs text-slate-400"
+                  class="p-4 sm:p-5 text-[0.55rem] uppercase tracking-[0.15em] font-light"
                 >
-                  Criterio de Evaluación
+                  Criterio
                 </th>
               </tr>
             </thead>
-            <tbody class="divide-y divide-slate-800/80 text-slate-300">
-              <tr class="hover:bg-slate-800/30 transition">
-                <td class="p-5 font-bold text-indigo-400">Descriptivo</td>
-                <td class="p-5 font-mono text-xs text-slate-200">
+            <tbody class="divide-y divide-[#e0d8d0]/30">
+              <tr class="transition">
+                <td
+                  class="p-4 sm:p-5 font-serif text-lg sm:text-xl font-light text-[#6b4e8a]/80"
+                >
+                  Descriptivo
+                </td>
+                <td class="p-4 sm:p-5 text-xs font-light text-slate-600/70">
                   ¿Cómo es la realidad / qué ocurre?
                 </td>
-                <td class="p-5">
-                  Observar, detallar y registrar hechos verificables sin emitir
-                  juicios de valor.
+                <td
+                  class="p-4 sm:p-5 text-xs font-light text-slate-500/70 hidden md:table-cell"
+                >
+                  Observar, detallar y registrar hechos verificables
                 </td>
-                <td class="p-5 text-slate-400">Verdadero / Falso</td>
+                <td class="p-4 sm:p-5 text-xs font-light text-slate-500/50">
+                  Verdadero / Falso
+                </td>
               </tr>
-              <tr class="hover:bg-slate-800/30 transition">
-                <td class="p-5 font-bold text-sky-400">Evaluativo</td>
-                <td class="p-5 font-mono text-xs text-slate-200">
+              <tr class="transition">
+                <td
+                  class="p-4 sm:p-5 font-serif text-lg sm:text-xl font-light text-[#4a6a90]/80"
+                >
+                  Evaluativo
+                </td>
+                <td class="p-4 sm:p-5 text-xs font-light text-slate-600/70">
                   ¿Qué valor o impacto tiene?
                 </td>
-                <td class="p-5">
-                  Ponderar y calificar una conducta o situación según escalas o
-                  principios morales.
+                <td
+                  class="p-4 sm:p-5 text-xs font-light text-slate-500/70 hidden md:table-cell"
+                >
+                  Ponderar según principios morales
                 </td>
-                <td class="p-5 text-slate-400">
-                  Adecuado / Inadecuado / Justificado
+                <td class="p-4 sm:p-5 text-xs font-light text-slate-500/50">
+                  Adecuado / Injustificado
                 </td>
               </tr>
-              <tr class="hover:bg-slate-800/30 transition">
-                <td class="p-5 font-bold text-emerald-400">Prescriptivo</td>
-                <td class="p-5 font-mono text-xs text-slate-200">
+              <tr class="transition">
+                <td
+                  class="p-4 sm:p-5 font-serif text-lg sm:text-xl font-light text-[#3a7a7a]/80"
+                >
+                  Prescriptivo
+                </td>
+                <td class="p-4 sm:p-5 text-xs font-light text-slate-600/70">
                   ¿Qué se debe hacer al respecto?
                 </td>
-                <td class="p-5">
-                  Formular normas, mandatos, criterios de acción o regulaciones
-                  de conducta.
+                <td
+                  class="p-4 sm:p-5 text-xs font-light text-slate-500/70 hidden md:table-cell"
+                >
+                  Formular normas y criterios de acción
                 </td>
-                <td class="p-5 text-slate-400">
-                  Obligatorio / Prohibido / Aconsejable
+                <td class="p-4 sm:p-5 text-xs font-light text-slate-500/50">
+                  Obligatorio / Prohibido
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
+
+        <!-- Expansión: nota metodológica -->
+        <div
+          class="card-light rounded-xl p-5 sm:p-6 text-xs sm:text-sm font-light text-slate-500/80 leading-relaxed border-l-2 border-[#c0b0c8]/20"
+        >
+          <span class="font-medium text-slate-600">Nota metodológica:</span>
+          Estos tres niveles no son compartimentos estancos, sino dimensiones
+          que se entrelazan en el análisis ético. Un diagnóstico descriptivo
+          sólido es condición necesaria para una evaluación justa y una
+          prescripción prudente. En la práctica administrativa, la habilidad
+          para transitar entre estos niveles distingue al gestor reflexivo del
+          mero ejecutor.
+        </div>
       </section>
 
-      <!-- Módulo 3: La Naturaleza del Conflicto Moral -->
+      <!-- Módulo 3: Conflicto Moral (expandido) -->
       <section id="conflictos" class="space-y-8">
-        <div class="border-l-4 border-emerald-500 pl-4">
-          <h2 class="text-2xl font-bold text-white tracking-tight">
-            3. ¿Qué es un Conflicto Moral?
+        <div class="border-l-2 border-[#b0c8b8]/30 pl-5 sm:pl-6">
+          <h2
+            class="font-serif text-2xl sm:text-3xl font-light text-slate-800 tracking-wide"
+          >
+            3. La naturaleza del conflicto moral
           </h2>
-          <p class="text-slate-400 text-sm">
-            La estructura interna de las encrucijadas éticas.
+          <p
+            class="text-slate-500/60 text-xs sm:text-sm font-light tracking-wider uppercase mt-1"
+          >
+            La estructura interna de las encrucijadas éticas
           </p>
         </div>
 
-        <div
-          class="bg-slate-900/40 border border-slate-800 rounded-2xl p-8 space-y-6"
-        >
-          <p class="text-slate-300 text-base leading-relaxed">
-            Un **conflicto moral** se configura cuando un agente debe tomar una
-            decisión y se enfrenta a dos o más deberes, principios o valores
-            válidos que son
-            <strong class="text-white">incompatibles entre sí</strong>. Cumplir
-            con una de las obligaciones implica, de forma ineludible, violar o
-            desatender la otra.
-          </p>
+        <div class="card-light rounded-2xl p-6 sm:p-8 md:p-10 space-y-8">
+          <blockquote
+            class="font-serif text-base sm:text-lg md:text-xl font-light leading-relaxed text-slate-700/90 quote-mark"
+          >
+            Un
+            <span class="text-slate-800 font-medium">conflicto moral</span> se
+            configura cuando un agente debe tomar una decisión y se enfrenta a
+            dos o más deberes, principios o valores válidos que son
+            <span class="text-slate-800 font-medium"
+              >incompatibles entre sí</span
+            >. Cumplir con una de las obligaciones implica, de forma ineludible,
+            violar o desatender la otra.
+          </blockquote>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
-            <div
-              class="border border-slate-800 bg-slate-950/60 p-6 rounded-xl space-y-3"
-            >
-              <h4 class="font-bold text-indigo-400 text-lg">
-                Estructura Dilemática
+            <div class="space-y-4 border-l-2 border-[#c0b0c8]/20 pl-5">
+              <h4
+                class="font-serif text-xl sm:text-2xl font-light text-[#6b4e8a]/70"
+              >
+                Estructura dilemática
               </h4>
               <ul
-                class="space-y-2 text-sm text-slate-300 list-disc list-inside"
+                class="space-y-3 text-sm font-light text-slate-600/80 list-none"
               >
-                <li>
-                  <strong class="text-slate-100">Opción A:</strong> Cumple el
-                  principio X, pero viola el principio Y.
+                <li class="flex items-start space-x-3">
+                  <span class="text-[#6b4e8a]/20 mt-0.5">◈</span
+                  ><span
+                    ><span class="text-slate-700 font-medium">Opción A:</span>
+                    Cumple el principio X, pero viola el principio Y.</span
+                  >
                 </li>
-                <li>
-                  <strong class="text-slate-100">Opción B:</strong> Cumple el
-                  principio Y, pero viola el principio X.
+                <li class="flex items-start space-x-3">
+                  <span class="text-[#6b4e8a]/20 mt-0.5">◈</span
+                  ><span
+                    ><span class="text-slate-700 font-medium">Opción B:</span>
+                    Cumple el principio Y, pero viola el principio X.</span
+                  >
                 </li>
-                <li>
-                  Inexistencia de un curso de acción neutral que preserve ambos
-                  valores intactos.
+                <li class="flex items-start space-x-3">
+                  <span class="text-[#6b4e8a]/20 mt-0.5">◈</span
+                  ><span
+                    >Inexistencia de un curso de acción neutral que preserve
+                    ambos valores intactos.</span
+                  >
                 </li>
               </ul>
+              <p
+                class="text-xs text-slate-500/60 font-light leading-relaxed pt-2 border-t border-[#d0c8c0]/15"
+              >
+                <span class="font-medium text-slate-600">Profundización:</span>
+                El dilema no es meramente teórico; implica una experiencia
+                existencial de angustia y responsabilidad. El agente no puede
+                eludir la decisión sin traicionar alguno de los principios que
+                lo constituyen como sujeto ético.
+              </p>
             </div>
-
-            <div
-              class="border border-slate-800 bg-slate-950/60 p-6 rounded-xl space-y-3"
-            >
-              <h4 class="font-bold text-sky-400 text-lg">Tensiones Típicas</h4>
+            <div class="space-y-4 border-l-2 border-[#b0c8c8]/20 pl-5">
+              <h4
+                class="font-serif text-xl sm:text-2xl font-light text-[#4a6a90]/70"
+              >
+                Tensiones típicas
+              </h4>
               <ul
-                class="space-y-2 text-sm text-slate-300 list-disc list-inside"
+                class="space-y-3 text-sm font-light text-slate-600/80 list-none"
               >
-                <li>
-                  <strong>Utilitarismo vs. Deontología:</strong> Maximizar
-                  beneficios masivos vs. No violar derechos individuales.
+                <li class="flex items-start space-x-3">
+                  <span class="text-[#4a6a90]/20 mt-0.5">◈</span
+                  ><span
+                    ><span class="text-slate-700 font-medium"
+                      >Utilitarismo vs. Deontología:</span
+                    >
+                    Maximizar beneficios colectivos vs. No violar derechos
+                    individuales.</span
+                  >
                 </li>
-                <li>
-                  <strong>Legalidad vs. Legitimidad:</strong> Cumplir el
-                  reglamento formal vs. Atender una urgencia humanitaria.
+                <li class="flex items-start space-x-3">
+                  <span class="text-[#4a6a90]/20 mt-0.5">◈</span
+                  ><span
+                    ><span class="text-slate-700 font-medium"
+                      >Legalidad vs. Legitimidad:</span
+                    >
+                    Cumplir el reglamento formal vs. Atender una urgencia
+                    humanitaria.</span
+                  >
                 </li>
-                <li>
-                  <strong>Justicia Distributiva vs. Certidumbre:</strong>
-                  Impacto a largo plazo vs. Atención inmediata.
+                <li class="flex items-start space-x-3">
+                  <span class="text-[#4a6a90]/20 mt-0.5">◈</span
+                  ><span
+                    ><span class="text-slate-700 font-medium"
+                      >Justicia distributiva vs. Certidumbre:</span
+                    >
+                    Impacto a largo plazo vs. Atención inmediata a necesidades
+                    apremiantes.</span
+                  >
                 </li>
               </ul>
+              <p
+                class="text-xs text-slate-500/60 font-light leading-relaxed pt-2 border-t border-[#d0c8c0]/15"
+              >
+                <span class="font-medium text-slate-600">Extensión:</span> Estas
+                tensiones no son accidentales, sino estructurales a la condición
+                humana. La administración pública, por su función mediadora
+                entre el Estado y la sociedad, es un escenario privilegiado
+                donde estas contradicciones se manifiestan con particular
+                intensidad.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Módulo 4: El "Hueco" Discrecional -->
-      <section
-        id="discrecionalidad"
-        class="bg-gradient-to-br from-indigo-950/40 via-slate-900 to-slate-950 border border-indigo-500/30 rounded-3xl p-8 md:p-10 space-y-8"
-      >
-        <div class="max-w-3xl space-y-3">
-          <span
-            class="text-xs font-bold uppercase tracking-widest text-indigo-400"
-            >El núcleo de la responsabilidad personal</span
-          >
-          <h2
-            class="text-3xl md:text-4xl font-extrabold text-white tracking-tight"
-          >
-            El "Hueco" de la Discrecionalidad
-          </h2>
-          <p class="text-slate-300 text-base leading-relaxed">
-            El conflicto moral **no existe en la ejecución mecánica o
-            algorítmica** de una instrucción estricta. Surge precisamente cuando
-            las reglas formales presentan vacíos, lagunas o contradicciones,
-            abriendo un margen para la decisión personal.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div
-            class="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl space-y-3"
-          >
-            <div class="text-indigo-400 font-bold text-lg">
-              1. Pérdida del Paraguas Normativo
-            </div>
-            <p class="text-xs text-slate-400 leading-relaxed">
-              Al no existir una regla rígida aplicable, el funcionario no puede
-              eximirse diciendo "solo cumplía órdenes". La responsabilidad ética
-              del resultado se desplaza directamente al individuo.
-            </p>
-          </div>
-
-          <div
-            class="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl space-y-3"
-          >
-            <div class="text-sky-400 font-bold text-lg">
-              2. Choque de Criterios
-            </div>
-            <p class="text-xs text-slate-400 leading-relaxed">
-              Dentro de ese espacio libre, colisionan el sentido de justicia o
-              compasión personal del agente frente al rigor o la inercia formal
-              de la institución estatal.
-            </p>
-          </div>
-
-          <div
-            class="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl space-y-3"
-          >
-            <div class="text-emerald-400 font-bold text-lg">
-              3. Juicio Discrecional
-            </div>
-            <p class="text-xs text-slate-400 leading-relaxed">
-              Obliga a ponderar la *intención* y el fin superior del bien común
-              cuando las letras del reglamento resultan contraproducentes para
-              la sociedad.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Módulo 5: Casos Prácticos de Estudio -->
-      <section id="casos" class="space-y-10">
-        <div class="border-l-4 border-indigo-500 pl-4">
-          <h2 class="text-2xl font-bold text-white tracking-tight">
-            5. Casos Prácticos de Análisis
-          </h2>
-          <p class="text-slate-400 text-sm">
-            Aplicación concreta de la estructura tripartita en escenarios
-            complejos.
-          </p>
-        </div>
-
-        <!-- Caso 1: Administración Pública -->
+      <!-- Módulo 4: El "Hueco" Discrecional (expandido) -->
+      <section id="discrecionalidad" class="relative">
         <div
-          class="bg-slate-900/50 border border-slate-800 rounded-2xl p-8 space-y-6"
+          class="absolute inset-0 bg-gradient-to-br from-[#e8e0f0]/20 via-[#e0ece8]/20 to-transparent rounded-3xl -z-10"
+        ></div>
+        <div
+          class="card-light border border-[#d0c8c0]/15 rounded-3xl p-6 sm:p-8 md:p-10 space-y-8"
+        >
+          <div class="max-w-3xl space-y-4">
+            <span
+              class="text-[0.5rem] uppercase tracking-[0.18em] text-[#6b4e8a]/50 font-light"
+              >El núcleo de la responsabilidad personal</span
+            >
+            <h2
+              class="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-slate-800 tracking-tight"
+            >
+              El "hueco" de la
+              <span class="gradient-text-soft">discrecionalidad</span>
+            </h2>
+            <p
+              class="text-slate-600/80 text-sm sm:text-base leading-relaxed font-light"
+            >
+              El conflicto moral
+              <span class="text-slate-700 font-medium"
+                >no existe en la ejecución mecánica</span
+              >
+              de una instrucción estricta. Surge precisamente cuando las reglas
+              formales presentan vacíos, lagunas o contradicciones, abriendo un
+              margen para la decisión personal.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div
+              class="bg-white/40 border border-[#d0c8c0]/10 p-6 rounded-2xl space-y-4 hover:bg-white/60 transition"
+            >
+              <div class="text-[#6b4e8a]/50 font-serif text-2xl font-light">
+                1
+              </div>
+              <h5 class="font-serif text-xl font-light text-slate-800">
+                Pérdida del paraguas normativo
+              </h5>
+              <p class="text-xs font-light text-slate-500/80 leading-relaxed">
+                Al no existir una regla rígida aplicable, el funcionario no
+                puede eximirse diciendo "solo cumplía órdenes". La
+                responsabilidad ética del resultado se desplaza directamente al
+                individuo.
+              </p>
+            </div>
+            <div
+              class="bg-white/40 border border-[#d0c8c0]/10 p-6 rounded-2xl space-y-4 hover:bg-white/60 transition"
+            >
+              <div class="text-[#4a6a90]/50 font-serif text-2xl font-light">
+                2
+              </div>
+              <h5 class="font-serif text-xl font-light text-slate-800">
+                Choque de criterios
+              </h5>
+              <p class="text-xs font-light text-slate-500/80 leading-relaxed">
+                Dentro de ese espacio libre, colisionan el sentido de justicia o
+                compasión personal del agente frente al rigor o la inercia
+                formal de la institución estatal.
+              </p>
+            </div>
+            <div
+              class="bg-white/40 border border-[#d0c8c0]/10 p-6 rounded-2xl space-y-4 hover:bg-white/60 transition"
+            >
+              <div class="text-[#3a7a7a]/50 font-serif text-2xl font-light">
+                3
+              </div>
+              <h5 class="font-serif text-xl font-light text-slate-800">
+                Juicio discrecional
+              </h5>
+              <p class="text-xs font-light text-slate-500/80 leading-relaxed">
+                Obliga a ponderar la
+                <span class="text-slate-700 font-medium">intención</span> y el
+                fin superior del bien común cuando las letras del reglamento
+                resultan contraproducentes para la sociedad.
+              </p>
+            </div>
+          </div>
+
+          <!-- Expansión: reflexión sobre la discrecionalidad -->
+          <div
+            class="bg-white/30 border-t border-[#d0c8c0]/15 pt-6 mt-4 text-xs sm:text-sm font-light text-slate-500/80 leading-relaxed"
+          >
+            <p>
+              <span class="font-medium text-slate-600"
+                >Reflexión filosófica:</span
+              >
+              La discrecionalidad no es un defecto del sistema, sino su
+              condición de posibilidad. Sin ella, la administración sería una
+              máquina ciega, incapaz de adaptarse a la singularidad de cada
+              situación. El verdadero desafío ético no es eliminar la
+              discrecionalidad, sino ejercerla con
+              <span class="text-slate-700 font-medium">prudencia</span>,
+              <span class="text-slate-700 font-medium">responsabilidad</span> y
+              <span class="text-slate-700 font-medium">transparencia</span>.
+              Como señala Aristóteles, la virtud se encuentra en el justo medio
+              entre el exceso y el defecto.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Módulo 5: Casos Prácticos (expandidos) -->
+      <section id="casos" class="space-y-10">
+        <div class="border-l-2 border-[#c0b0c8]/30 pl-5 sm:pl-6">
+          <h2
+            class="font-serif text-2xl sm:text-3xl font-light text-slate-800 tracking-wide"
+          >
+            5. Casos prácticos de análisis
+          </h2>
+          <p
+            class="text-slate-500/60 text-xs sm:text-sm font-light tracking-wider uppercase mt-1"
+          >
+            Aplicación concreta de la estructura tripartita en escenarios
+            complejos
+          </p>
+        </div>
+
+        <!-- Caso 1 -->
+        <div
+          class="card-light rounded-2xl p-6 sm:p-8 md:p-10 space-y-6 border border-[#d0c8c0]/10"
         >
           <div
-            class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-6"
+            class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#d0c8c0]/10 pb-5"
           >
             <div>
               <span
-                class="text-xs font-bold text-indigo-400 uppercase tracking-wider"
-                >Caso 01 • Gestión Estatal</span
+                class="text-[0.5rem] uppercase tracking-[0.18em] text-[#6b4e8a]/50 font-light"
+                >Caso 01 · Gestión estatal</span
               >
-              <h3 class="text-2xl font-bold text-white mt-1">
+              <h3
+                class="font-serif text-xl sm:text-2xl font-light text-slate-800 mt-0.5"
+              >
                 Automatización del Estado vs. Empleo Público
               </h3>
             </div>
             <span
-              class="px-3 py-1 bg-indigo-500/10 text-indigo-300 border border-indigo-500/30 rounded-full text-xs font-semibold self-start md:self-auto"
+              class="pill-light px-4 py-1.5 rounded-full text-[0.5rem] uppercase tracking-[0.12em] font-light self-start sm:self-auto"
+              >Dilema de eficiencia social</span
             >
-              Dilema de Eficiencia Social
-            </span>
           </div>
 
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div class="space-y-4">
-              <p class="text-sm text-slate-300 leading-relaxed">
+              <p class="text-sm font-light text-slate-600/80 leading-relaxed">
                 Un Ministerio evalúa implementar un sistema automatizado para
-                procesar pensiones sociales.
+                procesar pensiones sociales. La decisión enfrenta dos opciones
+                con consecuencias profundas.
               </p>
               <div class="space-y-3 text-xs">
                 <div
-                  class="p-4 bg-slate-950 rounded-xl border border-slate-800"
+                  class="p-4 bg-white/60 rounded-xl border border-[#d0c8c0]/10"
                 >
-                  <strong class="text-emerald-400 block mb-1"
-                    >Opción A: Automatización Masiva</strong
+                  <strong
+                    class="text-[#3a7a7a]/80 block mb-1 font-serif text-base font-light"
+                    >Opción A</strong
                   >
-                  Reduce la espera de 6 meses a 48 horas para
-                  <strong>150.000 ciudadanos indigentes</strong>, pero implica
-                  el despido de
-                  <strong>800 empleados públicos operativos</strong> por
-                  obsolescencia.
+                  <span class="text-slate-600/80 font-light"
+                    >Reduce la espera de 6 meses a 48 horas para
+                    <span class="text-slate-700 font-medium"
+                      >150.000 ciudadanos indigentes</span
+                    >, pero implica el despido de
+                    <span class="text-slate-700 font-medium"
+                      >800 empleados públicos</span
+                    >
+                    por obsolescencia.</span
+                  >
                 </div>
                 <div
-                  class="p-4 bg-slate-950 rounded-xl border border-slate-800"
+                  class="p-4 bg-white/60 rounded-xl border border-[#d0c8c0]/10"
                 >
-                  <strong class="text-indigo-400 block mb-1"
-                    >Opción B: Mantenimiento del Sistema Manual</strong
+                  <strong
+                    class="text-[#6b4e8a]/80 block mb-1 font-serif text-base font-light"
+                    >Opción B</strong
                   >
-                  Preserva la estabilidad laboral de los
-                  <strong>800 trabajadores estatales</strong>, perpetuando la
-                  demora de medio año para 150.000 beneficiarios en estado
-                  crítico.
+                  <span class="text-slate-600/80 font-light"
+                    >Preserva la estabilidad laboral de los
+                    <span class="text-slate-700 font-medium"
+                      >800 trabajadores estatales</span
+                    >, perpetuando la demora de medio año para 150.000
+                    beneficiarios en estado crítico.</span
+                  >
                 </div>
               </div>
             </div>
-
-            <!-- Niveles del Caso 1 -->
             <div
-              class="space-y-3 bg-slate-950/80 p-5 rounded-xl border border-slate-800/80 text-xs"
+              class="space-y-3 bg-white/30 p-5 rounded-xl border border-[#d0c8c0]/10"
             >
-              <div>
-                <strong class="text-indigo-400">Descriptivo:</strong>
-                <span class="text-slate-300"
-                  >Presupuesto de reconversión laboral nulo. Opción A beneficia
-                  a 150.000 vulnerables afectando a 800 trabajadores; Opción B
-                  protege a 800 trabajadores perjudicando a 150.000
-                  beneficiarios.</span
+              <div class="border-l-2 border-[#6b4e8a]/20 pl-4">
+                <span
+                  class="text-[#6b4e8a]/60 text-[0.5rem] uppercase tracking-[0.15em]"
+                  >Descriptivo</span
                 >
+                <p class="text-xs font-light text-slate-600/70 mt-1">
+                  Presupuesto de reconversión laboral nulo. Opción A beneficia a
+                  150.000 vulnerables afectando a 800 trabajadores; Opción B
+                  protege a 800 perjudicando a 150.000.
+                </p>
               </div>
-              <div>
-                <strong class="text-sky-400">Evaluativo:</strong>
-                <span class="text-slate-300"
-                  >Enfrenta la maximización del bienestar público general frente
-                  al deber ético del Estado como empleador protector.</span
+              <div class="border-l-2 border-[#4a6a90]/20 pl-4">
+                <span
+                  class="text-[#4a6a90]/60 text-[0.5rem] uppercase tracking-[0.15em]"
+                  >Evaluativo</span
                 >
+                <p class="text-xs font-light text-slate-600/70 mt-1">
+                  Enfrenta la maximización del bienestar público general frente
+                  al deber ético del Estado como empleador protector y garante
+                  de la dignidad del trabajo.
+                </p>
               </div>
-              <div>
-                <strong class="text-emerald-400">Prescriptivo:</strong>
-                <span class="text-slate-300"
-                  >Implementar la automatización (Opción A) priorizando el
+              <div class="border-l-2 border-[#3a7a7a]/20 pl-4">
+                <span
+                  class="text-[#3a7a7a]/60 text-[0.5rem] uppercase tracking-[0.15em]"
+                  >Prescriptivo</span
+                >
+                <p class="text-xs font-light text-slate-600/70 mt-1">
+                  Implementar la automatización (Opción A) priorizando el
                   beneficio vital de la mayoría en extrema indigencia,
-                  ejecutando partidas paliativas para el personal
-                  afectado.</span
+                  ejecutando partidas paliativas y programas de reconversión
+                  para el personal afectado.
+                </p>
+              </div>
+              <div
+                class="border-l-2 border-[#b0a8a0]/20 pl-4 mt-2 pt-2 border-t border-[#d0c8c0]/10"
+              >
+                <span
+                  class="text-slate-500/60 text-[0.5rem] uppercase tracking-[0.15em]"
+                  >Reflexión adicional</span
                 >
+                <p class="text-xs font-light text-slate-500/70 mt-1">
+                  Este caso ilustra la tensión entre
+                  <span class="text-slate-700 font-medium"
+                    >justicia distributiva</span
+                  >
+                  (atender a los más vulnerables) y
+                  <span class="text-slate-700 font-medium"
+                    >justicia conmutativa</span
+                  >
+                  (respetar los derechos adquiridos de los trabajadores). Una
+                  solución ética requeriría ponderar ambos principios y buscar
+                  un tercer camino que mitigue los daños.
+                </p>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Caso 2: Salud Pública / Crisis -->
+        <!-- Caso 2 -->
         <div
-          class="bg-slate-900/50 border border-slate-800 rounded-2xl p-8 space-y-6"
+          class="card-light rounded-2xl p-6 sm:p-8 md:p-10 space-y-6 border border-[#d0c8c0]/10"
         >
           <div
-            class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-6"
+            class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#d0c8c0]/10 pb-5"
           >
             <div>
               <span
-                class="text-xs font-bold text-sky-400 uppercase tracking-wider"
-                >Caso 02 • Salud Pública en Crisis</span
+                class="text-[0.5rem] uppercase tracking-[0.18em] text-[#4a6a90]/50 font-light"
+                >Caso 02 · Salud pública en crisis</span
               >
-              <h3 class="text-2xl font-bold text-white mt-1">
-                Hospital Público ante Insumos Críticos en Zona de Conflicto
+              <h3
+                class="font-serif text-xl sm:text-2xl font-light text-slate-800 mt-0.5"
+              >
+                Hospital público ante insumos críticos en zona de conflicto
               </h3>
             </div>
             <span
-              class="px-3 py-1 bg-sky-500/10 text-sky-300 border border-sky-500/30 rounded-full text-xs font-semibold self-start md:self-auto"
+              class="pill-sky px-4 py-1.5 rounded-full text-[0.5rem] uppercase tracking-[0.12em] font-light self-start sm:self-auto"
+              >Dilema de asignación médica</span
             >
-              Dilema de Asignación Médica
-            </span>
           </div>
 
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div class="space-y-4">
-              <p class="text-sm text-slate-300 leading-relaxed">
+              <p class="text-sm font-light text-slate-600/80 leading-relaxed">
                 Un hospital público fronterizo recibe insumos médicos limitados
-                durante una emergencia con refugiados.
+                durante una emergencia con refugiados. La escasez obliga a una
+                decisión trágica.
               </p>
               <div class="space-y-3 text-xs">
                 <div
-                  class="p-4 bg-slate-950 rounded-xl border border-slate-800"
+                  class="p-4 bg-white/60 rounded-xl border border-[#d0c8c0]/10"
                 >
-                  <strong class="text-emerald-400 block mb-1"
-                    >Opción A: Atención Inmediata en Guardia</strong
+                  <strong
+                    class="text-[#3a7a7a]/80 block mb-1 font-serif text-base font-light"
+                    >Opción A</strong
                   >
-                  Destinar el 100% de insumos y médicos a salvar con 90% de
-                  certeza a <strong>200 heridos graves</strong> presentes en el
-                  hospital.
+                  <span class="text-slate-600/80 font-light"
+                    >Destinar el 100% de insumos y médicos a salvar con 90% de
+                    certeza a
+                    <span class="text-slate-700 font-medium"
+                      >200 heridos graves</span
+                    >
+                    presentes en el hospital.</span
+                  >
                 </div>
                 <div
-                  class="p-4 bg-slate-950 rounded-xl border border-slate-800"
+                  class="p-4 bg-white/60 rounded-xl border border-[#d0c8c0]/10"
                 >
-                  <strong class="text-sky-400 block mb-1"
-                    >Opción B: Contención Epidemiológica y Forense</strong
+                  <strong
+                    class="text-[#4a6a90]/80 block mb-1 font-serif text-base font-light"
+                    >Opción B</strong
                   >
-                  Redirigir recursos para frenar un brote intencional en campos
-                  de refugiados y documentar crímenes, con 50% de probabilidad
-                  de salvar a <strong>8.000 personas</strong> (dejando morir a
-                  la mayoría de la guardia).
+                  <span class="text-slate-600/80 font-light"
+                    >Redirigir recursos para frenar un brote intencional en
+                    campos de refugiados y documentar crímenes, con 50% de
+                    probabilidad de salvar a
+                    <span class="text-slate-700 font-medium"
+                      >8.000 personas</span
+                    >
+                    (dejando morir a la mayoría de la guardia).</span
+                  >
                 </div>
               </div>
             </div>
-
-            <!-- Niveles del Caso 2 -->
             <div
-              class="space-y-3 bg-slate-950/80 p-5 rounded-xl border border-slate-800/80 text-xs"
+              class="space-y-3 bg-white/30 p-5 rounded-xl border border-[#d0c8c0]/10"
             >
-              <div>
-                <strong class="text-indigo-400">Descriptivo:</strong>
-                <span class="text-slate-300"
-                  >Certidumbre de salvar 180 vidas cercanas vs. Esperanza
+              <div class="border-l-2 border-[#6b4e8a]/20 pl-4">
+                <span
+                  class="text-[#6b4e8a]/60 text-[0.5rem] uppercase tracking-[0.15em]"
+                  >Descriptivo</span
+                >
+                <p class="text-xs font-light text-slate-600/70 mt-1">
+                  Certidumbre de salvar 180 vidas cercanas vs. Esperanza
                   matemática de salvar 4.000 vidas a distancia con alto riesgo
-                  de fracaso total.</span
-                >
+                  de fracaso total.
+                </p>
               </div>
-              <div>
-                <strong class="text-sky-400">Evaluativo:</strong>
-                <span class="text-slate-300"
-                  >Enfrenta la obligación ética de atención directa y no
-                  abandono al paciente inmediato vs. La maximización del valor
-                  esperado para detener una catástrofe masiva.</span
+              <div class="border-l-2 border-[#4a6a90]/20 pl-4">
+                <span
+                  class="text-[#4a6a90]/60 text-[0.5rem] uppercase tracking-[0.15em]"
+                  >Evaluativo</span
                 >
+                <p class="text-xs font-light text-slate-600/70 mt-1">
+                  Enfrenta la obligación ética de atención directa y no abandono
+                  al paciente inmediato vs. La maximización del valor esperado
+                  para detener una catástrofe masiva.
+                </p>
               </div>
-              <div>
-                <strong class="text-emerald-400">Prescriptivo:</strong>
-                <span class="text-slate-300"
-                  >Se prescribe priorizar la opción con mayor impacto
+              <div class="border-l-2 border-[#3a7a7a]/20 pl-4">
+                <span
+                  class="text-[#3a7a7a]/60 text-[0.5rem] uppercase tracking-[0.15em]"
+                  >Prescriptivo</span
+                >
+                <p class="text-xs font-light text-slate-600/70 mt-1">
+                  Se prescribe priorizar la opción con mayor impacto
                   cuantitativo probable para evitar la aniquilación sistemática
-                  a gran escala.</span
+                  a gran escala, asumiendo el costo moral de abandonar a los
+                  pacientes inmediatos.
+                </p>
+              </div>
+              <div
+                class="border-l-2 border-[#b0a8a0]/20 pl-4 mt-2 pt-2 border-t border-[#d0c8c0]/10"
+              >
+                <span
+                  class="text-slate-500/60 text-[0.5rem] uppercase tracking-[0.15em]"
+                  >Reflexión adicional</span
                 >
+                <p class="text-xs font-light text-slate-500/70 mt-1">
+                  Este caso evoca el clásico dilema del
+                  <span class="text-slate-700 font-medium">trolebús</span> en
+                  contexto de salud pública. La decisión implica una
+                  <span class="text-slate-700 font-medium">tragedia ética</span>
+                  donde cualquier elección genera sufrimiento. La ponderación
+                  debe considerar no solo los números, sino también la
+                  <span class="text-slate-700 font-medium">certeza</span> de los
+                  resultados y la
+                  <span class="text-slate-700 font-medium"
+                    >responsabilidad</span
+                  >
+                  del agente sobre las consecuencias previsibles.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Caso 3 (nuevo) -->
+        <div
+          class="card-light rounded-2xl p-6 sm:p-8 md:p-10 space-y-6 border border-[#d0c8c0]/10"
+        >
+          <div
+            class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#d0c8c0]/10 pb-5"
+          >
+            <div>
+              <span
+                class="text-[0.5rem] uppercase tracking-[0.18em] text-[#3a7a7a]/50 font-light"
+                >Caso 03 · Transparencia y seguridad</span
+              >
+              <h3
+                class="font-serif text-xl sm:text-2xl font-light text-slate-800 mt-0.5"
+              >
+                Confidencialidad vs. Derecho a la información
+              </h3>
+            </div>
+            <span
+              class="pill-emerald px-4 py-1.5 rounded-full text-[0.5rem] uppercase tracking-[0.12em] font-light self-start sm:self-auto"
+              >Dilema de gobernanza</span
+            >
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div class="space-y-4">
+              <p class="text-sm font-light text-slate-600/80 leading-relaxed">
+                Un alto funcionario público tiene acceso a información
+                confidencial sobre un proyecto de infraestructura que, de
+                hacerse pública, podría generar alarma social, pero también
+                revelaría riesgos ambientales ocultos.
+              </p>
+              <div class="space-y-3 text-xs">
+                <div
+                  class="p-4 bg-white/60 rounded-xl border border-[#d0c8c0]/10"
+                >
+                  <strong
+                    class="text-[#3a7a7a]/80 block mb-1 font-serif text-base font-light"
+                    >Opción A</strong
+                  >
+                  <span class="text-slate-600/80 font-light"
+                    >Mantener la confidencialidad para evitar el pánico y
+                    proteger la inversión, pero ocultar información relevante
+                    para la seguridad de la comunidad.</span
+                  >
+                </div>
+                <div
+                  class="p-4 bg-white/60 rounded-xl border border-[#d0c8c0]/10"
+                >
+                  <strong
+                    class="text-[#6b4e8a]/80 block mb-1 font-serif text-base font-light"
+                    >Opción B</strong
+                  >
+                  <span class="text-slate-600/80 font-light"
+                    >Divulgar la información a través de canales legales,
+                    asumiendo el costo político y la posible paralización del
+                    proyecto, pero cumpliendo con el deber de transparencia y
+                    protección ciudadana.</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div
+              class="space-y-3 bg-white/30 p-5 rounded-xl border border-[#d0c8c0]/10"
+            >
+              <div class="border-l-2 border-[#6b4e8a]/20 pl-4">
+                <span
+                  class="text-[#6b4e8a]/60 text-[0.5rem] uppercase tracking-[0.15em]"
+                  >Descriptivo</span
+                >
+                <p class="text-xs font-light text-slate-600/70 mt-1">
+                  Existe información verificada sobre riesgos ambientales. La
+                  decisión enfrenta el deber de reserva frente al deber de
+                  transparencia y protección de la comunidad.
+                </p>
+              </div>
+              <div class="border-l-2 border-[#4a6a90]/20 pl-4">
+                <span
+                  class="text-[#4a6a90]/60 text-[0.5rem] uppercase tracking-[0.15em]"
+                  >Evaluativo</span
+                >
+                <p class="text-xs font-light text-slate-600/70 mt-1">
+                  Enfrenta el principio de
+                  <span class="text-slate-700 font-medium"
+                    >confidencialidad</span
+                  >
+                  (necesario para la gobernanza) con el principio de
+                  <span class="text-slate-700 font-medium">transparencia</span>
+                  (fundamento de la democracia) y el
+                  <span class="text-slate-700 font-medium"
+                    >derecho a la información</span
+                  >
+                  de la ciudadanía.
+                </p>
+              </div>
+              <div class="border-l-2 border-[#3a7a7a]/20 pl-4">
+                <span
+                  class="text-[#3a7a7a]/60 text-[0.5rem] uppercase tracking-[0.15em]"
+                  >Prescriptivo</span
+                >
+                <p class="text-xs font-light text-slate-600/70 mt-1">
+                  Se prescribe la divulgación controlada, utilizando los canales
+                  institucionales y acompañando la información con un plan de
+                  gestión de riesgos. La transparencia, en este caso, es un
+                  deber ético que fortalece la confianza pública a largo plazo.
+                </p>
+              </div>
+              <div
+                class="border-l-2 border-[#b0a8a0]/20 pl-4 mt-2 pt-2 border-t border-[#d0c8c0]/10"
+              >
+                <span
+                  class="text-slate-500/60 text-[0.5rem] uppercase tracking-[0.15em]"
+                  >Reflexión adicional</span
+                >
+                <p class="text-xs font-light text-slate-500/70 mt-1">
+                  Este caso pone de relieve la
+                  <span class="text-slate-700 font-medium"
+                    >responsabilidad fiduciaria</span
+                  >
+                  del funcionario público. La confidencialidad no es un valor
+                  absoluto; debe ser ponderada frente a otros derechos
+                  fundamentales. La decisión ética exige
+                  <span class="text-slate-700 font-medium">prudencia</span> y
+                  <span class="text-slate-700 font-medium"
+                    >rendición de cuentas</span
+                  >.
+                </p>
               </div>
             </div>
           </div>
@@ -592,17 +1139,71 @@
       </section>
     </main>
 
-    <!-- Footer -->
-    <footer
-      class="border-t border-slate-800/80 bg-slate-950 py-10 text-center text-xs text-slate-500"
-    >
-      <div class="max-w-7xl mx-auto px-6 space-y-3">
-        <p class="text-slate-400 font-medium">
-          Compendio de Análisis Ético y Filosofía Práctica
-        </p>
-        <p>
-          Diseñado con HTML5 y Tailwind CSS para consulta y estudio de la
-          Gestión Pública.
+    <footer class="border-t border-[#d0c8c0]/15 bg-white/60 py-10 text-center">
+      <div class="max-w-7xl mx-auto px-4 space-y-4">
+        <!-- Créditos institucionales -->
+        <div class="space-y-1">
+          <p
+            class="font-serif text-sm font-light text-slate-500/60 tracking-widest"
+          >
+            Escuela Normal Superior N°40 "Mariano Moreno"
+          </p>
+          <p
+            class="text-[0.5rem] uppercase tracking-[0.18em] text-slate-400/50 font-light"
+          >
+            Nivel Superior
+          </p>
+        </div>
+
+        <!-- Datos de contacto y redes -->
+        <div
+          class="flex flex-wrap justify-center gap-4 text-xs text-slate-500/70 font-light"
+        >
+          <a
+            href="https://github.com/tiagoraminelli"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-[#6b4e8a] transition-colors"
+          >
+            GitHub
+          </a>
+          <span class="text-slate-300/30">·</span>
+          <a
+            href="https://www.linkedin.com/in/tiago-raminelli/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-[#4a6a90] transition-colors"
+          >
+            LinkedIn
+          </a>
+          <span class="text-slate-300/30">·</span>
+          <a
+            href="mailto:tiagoraminelli4@gmail.com"
+            class="hover:text-[#3a7a7a] transition-colors"
+          >
+            tiagoraminelli4@gmail.com
+          </a>
+        </div>
+
+        <!-- Aviso de uso -->
+        <div
+          class="max-w-2xl mx-auto text-[0.55rem] uppercase tracking-[0.12em] text-slate-400/50 font-light leading-relaxed"
+        >
+          <span class="block sm:inline"
+            >TODO EL MATERIAL ESTÁ A DISPOSICIÓN DEL QUE LO QUIERA USAR</span
+          >
+          <span class="hidden sm:inline text-slate-300/30">·</span>
+          <span class="block sm:inline">Y LIBRE DE COMPARTIRLO</span>
+        </div>
+
+        <!-- Línea decorativa -->
+        <div
+          class="w-16 h-px bg-gradient-to-r from-transparent via-[#d0c8c0]/30 to-transparent mx-auto"
+        ></div>
+
+        <!-- Año -->
+        <p class="text-[0.5rem] text-slate-400/40 font-light tracking-wide">
+          © 2026 · Ética y Administración Pública
         </p>
       </div>
     </footer>
